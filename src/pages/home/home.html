@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Test PIPEs</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h2>Welcome to PIPEs in Ionic</h2>
+  <ion-list>
+    <ion-item>
+      <ion-label>Country Code:</ion-label>
+      <ion-input [(ngModel)]="countryCode" (ngModelChange)="countryCode = $event.toUpperCase()" floating type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label>Country name in English:</ion-label>
+      <ion-input readonly floating type="text" value="{{countryCode|countryCodeToNameInEng}}"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Country name in Thai:</ion-label>
+      <ion-input readonly floating type="text" value="{{countryCode|countryCodeToNameInThai}}"></ion-input>
+    </ion-item>
+    <ion-item text-center>
+      <ion-img style="background: transparent !important" width="200" height="200" src="../assets/imgs/{{countryCode|countryCodeToNameInEng|countryNameToFlagImageFile}}"></ion-img>
+    </ion-item>
+  </ion-list>
+</ion-content>
